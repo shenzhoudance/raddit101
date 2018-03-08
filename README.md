@@ -41,6 +41,8 @@ git push origin add_user
 
 ## 1.3 构建 第四个 add_navigation 分支（https://emmet.io/）
 
+git checkout -b add_navigation
+
 app/views/layouts/application.html.erb
 
 ```
@@ -60,7 +62,8 @@ app/views/layouts/application.html.erb
 <%= yield %>
 
 ```
-## 1.4 构建 第五个 add_relation 分支
+添加用户关系
+
 app/models/user.rb
 ```
 has_many :links
@@ -80,5 +83,28 @@ exit
 ---
 git add .
 git commit -m "Add navigation and relation"
-git push origin add_user
+git push origin add_navigation
+```
+
+## 1.4 构建 第五个 add_user_relation_links 分支
+http://dmy-blog.logdown.com/archives
+https://stackoverflow.com/questions/23319155/what-does-this-code-do-i-do-not-understand-the-syntax
+```
+rails g migration add_user_id_to_links user_id integer:index
+rake db:migrate
+---
+rails c
+link
+link.connection
+link
+---
+git add .
+git commit -m "Add assoctation between link and user"
+git push origin add_user_relation_links
+
+
+
+```
+
+```
 ```
